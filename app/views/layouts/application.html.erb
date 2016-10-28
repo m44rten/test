@@ -9,8 +9,19 @@
   </head>
 
   <body>
+  	<%= render 'layouts/sidemenu' %>
+  	<%= render 'layouts/navigation' %>
   	<%= render 'layouts/messages' %>
-  	
-    <%= yield %>
+  	<div class="container">
+    	<%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    
+     <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
   </body>
 </html>
