@@ -6,6 +6,8 @@
 	<%= simple_format(@user.username) %>
 	<%= simple_format(@user.email) %>
 	<div class="article-actions">
+	
+
 		<%= link_to "edit", edit_user_path(@user), class: "btn btn-xs btn-primary" %>
 		<%= link_to "View all", users_path, class: "btn btn-xs btn-success" %>
 		<%= link_to "Delete", user_path(@user), method: :delete, 

@@ -14,6 +14,7 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'bcrypt', '~> 3.1.7'
 
+
 gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '0.0.10'
 
@@ -41,6 +42,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'better_errors'
 end
 
 group :development do
