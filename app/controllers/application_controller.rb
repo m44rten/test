@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
   def logged_in?
   	!!current_user
   end
-  
+
+  #TODO check ruby style guide concerning the negative if statement
   def require_user
   	if !logged_in?
   		flash[:danger] = "You must be logged in"
   		redirect_to root_path
   	end
   end
-  
-  
+
 end

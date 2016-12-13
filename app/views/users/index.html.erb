@@ -1,36 +1,42 @@
 <h1 align="center">Users list</h1>
 <div align="center">
-	<%= will_paginate %>
+  <%= will_paginate %>
 </div>
 <% @users.each do |user| %>
-	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
-			<div class="well well-lg">
-				<div class="article-title">
-					<%= link_to user.username, user_path(user) %>
-				</div>
-				<div class="article-body">
-					<%= truncate(user.email, lenght: 100) %>
-					<div class="article-meta-details">
-					<small>
-													  	<%= time_ago_in_words(user.created_at) %> ago,
-													  	<%= time_ago_in_words(user.updated_at) %> ago,
-													  	Heeft <%= user.articles.count() %> articles
-					</small>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="article-title">
+            <%= link_to user.username, user_path(user) %>
+          </div>
+          <div class="article-body">
+            <%= truncate(user.email, lenght: 100) %>
+            <div class="article-meta-details">
+              <small>
+                <%= time_ago_in_words(user.created_at) %> ago,
+                <%= time_ago_in_words(user.updated_at) %> ago,
+                Heeft <%= user.articles.count() %> articles
+                <% if logged_in? and current_user.admin? %>
+                    <li>
+                <%= link_to "delete user", users_path(user), method: :delete,
+                           data: {confirm: "are you shure, this will delte their articles aswell"} %>
+                  <li>
+                   <% end %>
+                   </small>
 					
 					
 					</div>
-				</div>
+                   </div>
 				
 				<div class="article-actions">
 					<%= link_to "edit", edit_user_path(user), class: "btn btn-xs btn-primary" %>
-					<%= link_to "Delete", user_path(user), method: :delete, 
-																									data: { confirm: "Are you shure"}, 
-																									class: "btn btn-xs btn-danger" %>
-				</div>
-			</div>
-		</div>
-	</div>
+                <%= link_to "Delete", user_path(user), method: :delete,
+                            data: {confirm: "Are you shure"},
+                            class: "btn btn-xs btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
 <% end %>
 	
 
